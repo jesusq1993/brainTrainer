@@ -14,7 +14,7 @@
         android:background="#03A9F4"
         android:backgroundTint="#2196F3"
         android:gravity="center"
-        android:text="TextView"
+        android:text="30s"
         android:textSize="16sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/problemTxv"
@@ -27,7 +27,7 @@
         android:layout_marginEnd="40dp"
         android:background="#FF9800"
         android:gravity="center"
-        android:text="TextView"
+        android:text="0/0"
         android:textSize="16sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/problemTxv"
@@ -42,80 +42,124 @@
         android:layout_marginEnd="20dp"
         android:background="#64FFDA"
         android:gravity="center"
-        android:text="TextView"
+        android:text="50+9"
         android:textSize="16sp"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/problemAmounttxv"
         app:layout_constraintStart_toEndOf="@+id/timerTxv"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/answerTwoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#536DFE"
-        android:text="Button"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/answerfourButton"
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="412dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.663"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        app:layout_constraintTop_toBottomOf="@+id/timerTxv">
 
-    <Button
-        android:id="@+id/answerfourButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="252dp"
-        android:backgroundTint="#FF5252"
-        android:text="Button"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/answerTwoButton"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/answerThreeButton" />
+        <Button
+            android:id="@+id/answerThreeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF5252"
+            android:onClick="chooseAnswer"
+            android:tag="3"
+            android:text="15"
+            android:textSize="80sp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="1"
+            app:layout_rowWeight="1" />
 
-    <Button
-        android:id="@+id/answerThreeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FF4081"
-        android:text="Button"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/answerfourButton"
-        app:layout_constraintStart_toStartOf="@+id/answerOneButton" />
+        <Button
+            android:id="@+id/answerTwoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF4081"
+            android:onClick="chooseAnswer"
+            android:tag="2"
+            android:text="15"
+            android:textSize="80sp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="1"
+            app:layout_rowWeight="1" />
 
-    <Button
-        android:id="@+id/answerOneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#FFFF00"
-        android:text="Button"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/answerThreeButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        <Button
+            android:id="@+id/answerOneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#536DFE"
+            android:onClick="chooseAnswer"
+            android:tag="1"
+            android:text="15"
+            android:textSize="80sp"
+            app:layout_column="1"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/answerZeroButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFF00"
+            android:onClick="chooseAnswer"
+            android:tag="0"
+            android:text="15"
+            android:textSize="80sp"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:layout_rowWeight="1" />
+    </androidx.gridlayout.widget.GridLayout>
 
     <Button
         android:id="@+id/goButton"
         android:layout_width="152dp"
         android:layout_height="117dp"
-        android:text="GO!"
         android:onClick="goButton"
+        android:text="GO!"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resultTxv"
+        android:layout_width="218dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="124dp"
+        android:gravity="center"
+        android:text="Correct"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="playAgain"
+        android:text="Play Again!"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultTxv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
